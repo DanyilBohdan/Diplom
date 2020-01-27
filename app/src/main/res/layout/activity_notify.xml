@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NotifyActivity"
+    android:background="@color/colorActivity"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_taskN"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark">
+            <Button
+                android:id="@+id/btn_taskOK"
+                style="@android:style/Widget.Holo.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Завершено"
+                android:layout_gravity="end"
+                android:layout_marginRight="5dp"/>
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:id="@+id/et_taskNameN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="Задача"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/Comment_taskN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:gravity="start|top|left"
+        android:hint="Коментарии"
+        android:inputType="textMultiLine"
+        android:paddingLeft="8dp" />
+
+</LinearLayout>

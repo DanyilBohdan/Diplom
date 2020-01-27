@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/tv_spending_name"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|start"
+        android:fontFamily="sans-serif-smallcaps"
+        android:paddingLeft="5dp"
+        android:text="Name"
+        android:textSize="23sp" />
+
+    <TextView
+        android:id="@+id/tv_spending_money"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:fontFamily="sans-serif-smallcaps"
+        android:paddingRight="3dp"
+        android:text="money"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp" />
+
+</FrameLayout>

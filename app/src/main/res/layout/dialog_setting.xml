@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <Button
+        android:id="@+id/setting_delete"
+        style="@android:style/Widget.DeviceDefault.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/setting_edit"
+        android:layout_marginTop="2dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Удалить"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="27dp" />
+
+    <Button
+        android:id="@+id/setting_edit"
+        style="@android:style/Widget.DeviceDefault.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Редактировать"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="27dp" />
+</RelativeLayout>

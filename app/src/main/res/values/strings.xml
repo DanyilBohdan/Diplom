@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ToDoCount</string>
+    <string name="Calendar">Календарь</string>
+    <string name="Events">События</string>
+    <string name="Tasks">Задачи</string>
+    <string name="Spending">Расходы</string>
+    <string name="title_activity_tasks">Задача</string>
+</resources>

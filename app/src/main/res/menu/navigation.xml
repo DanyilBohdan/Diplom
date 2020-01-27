@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_Calendar"
+        android:icon="@drawable/ic_calendar"
+        android:title="@string/Calendar"
+        android:fontFamily="sans-serif-smallcaps"/>
+
+    <item
+        android:id="@+id/navigation_Events"
+        android:icon="@drawable/ic_events"
+        android:title="@string/Events"
+        android:fontFamily="sans-serif-smallcaps"/>
+
+    <item
+        android:id="@+id/navigation_Tasks"
+        android:icon="@drawable/ic_tasks"
+        android:title="@string/Tasks"
+        android:fontFamily="sans-serif-smallcaps"/>
+
+    <item
+        android:id="@+id/navigation_Spending"
+        android:icon="@drawable/ic_spending"
+        android:title="@string/Spending"
+        android:fontFamily="sans-serif-smallcaps"/>
+
+</menu>

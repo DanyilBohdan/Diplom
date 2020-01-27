@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <EditText
+        android:id="@+id/ed_purpose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="Наименование"
+        android:inputType="textPersonName|textCapSentences"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ed_suma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ed_purpose"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="Сумма"
+        android:inputType="number"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_purpose" />
+
+    <Button
+        android:id="@+id/btnOK_sp"
+        style="@android:style/Widget.Holo.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ed_suma"
+        android:layout_alignStart="@+id/ed_purpose"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="136dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Ок"
+        app:layout_constraintEnd_toEndOf="@+id/ed_purpose"
+        app:layout_constraintTop_toTopOf="@+id/ed_suma" />
+
+    <Button
+        android:id="@+id/btnCansel_sp"
+        style="@android:style/Widget.Holo.Button"
+        android:layout_width="106dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ed_suma"
+        android:layout_alignStart="@+id/ed_purpose"
+        android:layout_alignEnd="@+id/ed_purpose"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Отмена"
+        app:layout_constraintEnd_toEndOf="@+id/ed_purpose"
+        app:layout_constraintTop_toTopOf="@+id/ed_suma" />
+
+</RelativeLayout>

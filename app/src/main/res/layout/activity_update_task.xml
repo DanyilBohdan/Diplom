@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateTaskActivity"
+    android:background="@color/colorActivity"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_uptask"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_OK_uptask"
+                style="@style/Widget.Design.Snackbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/checkmark"
+                app:backgroundTint="@android:color/holo_green_dark"
+                app:elevation="100dp"
+                app:fabSize="mini"
+                app:maxImageSize="30dp" />
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <EditText
+        android:id="@+id/et_uptaskName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="Задача"
+        android:inputType="textPersonName|textCapSentences"
+        android:padding="20dp" />
+
+    <Switch
+        android:id="@+id/sw_timeupTask_reminder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:paddingLeft="8dp"
+        android:text="Напоминание"
+        android:theme="@style/MySwitch" />
+
+    <EditText
+        android:id="@+id/Comment_uptask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:gravity="start|top|left"
+        android:hint="Коментарии"
+        android:inputType="textMultiLine|textCapSentences" />
+
+</LinearLayout>

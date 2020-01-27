@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <CheckBox
+        android:id="@+id/cb_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|start"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="task"
+        android:textSize="18dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:button="@drawable/checkbox_selector"
+        android:paddingLeft="8dp"/>
+
+</FrameLayout>
