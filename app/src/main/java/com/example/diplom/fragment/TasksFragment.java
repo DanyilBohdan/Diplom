@@ -1,4 +1,4 @@
-package com.example.diplom;
+package com.example.diplom.fragment;
 
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
@@ -9,35 +9,31 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.text.SpannableString;
-import android.text.style.StrikethroughSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import com.example.diplom.DBHelper;
+import com.example.diplom.DateService;
+import com.example.diplom.R;
+import com.example.diplom.adapter.TaskCursorAdapter;
+import com.example.diplom.activity.TaskActivity;
+import com.example.diplom.activity.UpdateTaskActivity;
+import com.example.diplom.alarm.AlarmReceiverTask;
+
 import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
 
 public class TasksFragment extends Fragment {
 
@@ -70,7 +66,7 @@ public class TasksFragment extends Fragment {
 
         TaskDate = (TextView) getActivity().findViewById(R.id.toolbar_task_title);
 
-        strDate = DS.date;
+        strDate = DateService.date;
         TaskDate.setText(strDate);
 
         TaskDate.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +98,7 @@ public class TasksFragment extends Fragment {
                 else
                     if(dayOfMonth<10) strDate = "0" + dayOfMonth + "." + month + "." + year;
                     else strDate = dayOfMonth + "." + month + "." + year;
-                DS.date = strDate;
+                DateService.date = strDate;
                 TaskDate.setText(strDate);
                 viewTask();
             }
@@ -210,9 +206,9 @@ public class TasksFragment extends Fragment {
     private void viewTask() {
         Cursor cursor = db.viewTask(strDate);
 
-        // формируем столбцы сопоставления
-        String[] from = {"name_task"};
-        int[] to = {R.id.cb_task};
+//        // формируем столбцы сопоставления
+//        String[] from = {"name_task"};
+//        int[] to = {R.id.cb_task};
 
         // создаем адаптер и настраиваем список
         adapter = new TaskCursorAdapter(getActivity(), cursor, 0);

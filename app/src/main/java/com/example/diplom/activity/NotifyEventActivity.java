@@ -1,24 +1,21 @@
-package com.example.diplom;
+package com.example.diplom.activity;
 
-import android.app.AlarmManager;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Calendar;
+import com.example.diplom.DBHelper;
+import com.example.diplom.IdBuffer;
+import com.example.diplom.R;
 
-public class NotifyActivity extends AppCompatActivity {
+public class NotifyEventActivity extends AppCompatActivity {
 
     private TextView et_name, et_coment;
     Button btn;
@@ -39,22 +36,23 @@ public class NotifyActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar_taskN);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("   Задача");
+        getSupportActionBar().setTitle("   Событие");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        final String id = ID.task_id;
-        String []task = db.viewTaskID(id);
-        et_name.setText(task[0]);
-        et_coment.setText(task[2]);
+        final String id = IdBuffer.event_id;
+        String[] task = db.viewEventID(id);
+        String N = task[0] + " в " + task[2];
+        et_name.setText(N);
+        et_coment.setText(task[3]);
 
         btn = (Button) findViewById(R.id.btn_taskOK);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SQLiteDatabase mdb = db.getWritableDatabase();
-                mdb.execSQL("update Task set ch = '1' where _id = " + id);
-                Toast.makeText(getApplicationContext(), "Завершено " + id, Toast.LENGTH_SHORT).show();
+                mdb.execSQL("update Event set ch = '1' where _id = " + id);
+                Toast.makeText(getApplicationContext(), "Завершена", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

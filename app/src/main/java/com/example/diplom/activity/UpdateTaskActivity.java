@@ -1,4 +1,4 @@
-package com.example.diplom;
+package com.example.diplom.activity;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -17,6 +17,11 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.example.diplom.alarm.AlarmReceiverTask;
+import com.example.diplom.DBHelper;
+import com.example.diplom.DateService;
+import com.example.diplom.R;
 
 import java.util.Calendar;
 
@@ -98,7 +103,7 @@ public class UpdateTaskActivity extends AppCompatActivity {
 
                     cal = Calendar.getInstance();
 
-                    cal = DS.setDate(DS.date);
+                    cal = DateService.setDate(DateService.date);
                     cal.set(Calendar.HOUR_OF_DAY, h);
                     cal.set(Calendar.MINUTE, m);
                     cal.set(Calendar.SECOND, 0);

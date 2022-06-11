@@ -1,4 +1,4 @@
-package com.example.diplom;
+package com.example.diplom.activity;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -8,19 +8,20 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.SimpleCursorAdapter;
 import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.example.diplom.alarm.AlarmReceiverEvent;
+import com.example.diplom.DBHelper;
+import com.example.diplom.DateService;
+import com.example.diplom.R;
 
 import java.util.Calendar;
 
@@ -133,7 +134,7 @@ public class UpdateEventActivity extends AppCompatActivity {
 
                     cal = Calendar.getInstance();
 
-                    cal = DS.setDate(DS.date);
+                    cal = DateService.setDate(DateService.date);
                     cal.set(Calendar.HOUR_OF_DAY, h);
                     cal.set(Calendar.MINUTE, m);
                     cal.set(Calendar.SECOND, 0);

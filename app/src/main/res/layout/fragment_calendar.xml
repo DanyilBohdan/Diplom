@@ -31,20 +31,6 @@
                 android:textColor="@color/colorText"
                 android:textSize="25dp" />
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fab_OK_task"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/setting_time"
-                app:backgroundTint="@color/colorPrimaryDark"
-                app:elevation="150dp"
-                app:fabSize="normal"
-                app:maxImageSize="55dp"
-                android:onClick="onClickButtonSetting"
-                android:autofillHints="Установка напоминания"/>
-
             </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
@@ -90,7 +76,7 @@
             android:layout_marginTop="12dp"
             android:fontFamily="sans-serif-smallcaps"
             android:text="Spending"
-            android:textSize="25dp"
+            android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

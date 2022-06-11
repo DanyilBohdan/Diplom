@@ -11,15 +11,15 @@
         android:roundIcon="@drawable/ic_icon_to_do"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".NotifyEventActivity"></activity>
-        <activity android:name=".NotifyActivity" />
-        <activity android:name=".UpdateTaskActivity" />
-        <activity android:name=".UpdateEventActivity" />
-        <activity android:name=".EventActivity" />
-        <activity android:name=".TaskActivity" />
-        <activity android:name=".DiaryActivity" />
+        <activity android:name=".activity.NotifyEventActivity"/>
+        <activity android:name=".activity.NotifyActivity" />
+        <activity android:name=".activity.UpdateTaskActivity" />
+        <activity android:name=".activity.UpdateEventActivity" />
+        <activity android:name=".activity.EventActivity" />
+        <activity android:name=".activity.TaskActivity" />
+        <activity android:name=".activity.DiaryActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,9 +28,9 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".AlarmReceiverTask" android:enabled="true" />
-        <receiver android:name=".AlarmReceiverEvent" android:enabled="true" />
-        <receiver android:name=".AlarmReceiverT" android:enabled="true"/>
+        <receiver android:name=".alarm.AlarmReceiverTask" android:enabled="true" />
+        <receiver android:name=".alarm.AlarmReceiverEvent" android:enabled="true" />
+        <receiver android:name=".alarm.AlarmReceiverEvening" android:enabled="true"/>
     </application>
 
 </manifest>

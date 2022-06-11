@@ -1,4 +1,4 @@
-package com.example.diplom;
+package com.example.diplom.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.diplom.DBHelper;
+import com.example.diplom.DateService;
+import com.example.diplom.R;
 
 public class DiaryActivity extends AppCompatActivity {
 
@@ -20,7 +24,7 @@ public class DiaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_diary);
 
         diary = (EditText) findViewById(R.id.Edit_diary);
-        strDate = DS.date;
+        strDate = DateService.date;
         db = new DBHelper(this, 1);
 
         diary.setText(db.viewDiary(strDate));

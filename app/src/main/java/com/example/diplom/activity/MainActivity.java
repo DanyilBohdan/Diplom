@@ -1,4 +1,4 @@
-package com.example.diplom;
+package com.example.diplom.activity;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -12,20 +12,22 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.diplom.R;
+import com.example.diplom.alarm.AlarmReceiverEvening;
+import com.example.diplom.fragment.CalendarFragment;
+import com.example.diplom.fragment.EventsFragment;
+import com.example.diplom.fragment.SpendingFragment;
+import com.example.diplom.fragment.TasksFragment;
+
 import java.util.Calendar;
 
 public class MainActivity extends FragmentActivity {
 
-    private FragmentTransaction transaction;
-    private FragmentManager manager;
-    private String time;
     private int h = 23;
     private int m = 0;
 
@@ -35,7 +37,7 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);// вертикальная ориентация
-        Alarm();
+        alarmInTheEvening();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -68,10 +70,10 @@ public class MainActivity extends FragmentActivity {
         }
     };
 
-    private void Alarm(){
+    private void alarmInTheEvening(){
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(this, AlarmReceiverT.class);
+        Intent intent = new Intent(this, AlarmReceiverEvening.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
 
         Calendar cal = Calendar.getInstance();
@@ -83,38 +85,4 @@ public class MainActivity extends FragmentActivity {
 
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY , pendingIntent);
     }
-
-    /*public void onClickButtonSetting(View v){
-        Calendar c = Calendar.getInstance();
-        int mHour = c.get(Calendar.HOUR_OF_DAY);
-        int mMinute = c.get(Calendar.MINUTE);
-
-        // Launch Time Picker Dialog
-        TimePickerDialog timePickerDialog = new TimePickerDialog(this,
-                new TimePickerDialog.OnTimeSetListener() {
-
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-
-                        h = hourOfDay;
-                        m = minute;
-
-                        if(hourOfDay < 10)
-                            if(minute < 10) time = "0" + hourOfDay + ":0" + minute;
-                            else time = "0" + hourOfDay + ":" + minute;
-                        else
-                            if(minute < 10) time = hourOfDay + ":0" + minute;
-                            else time = hourOfDay + ":" + minute;
-                        Toast.makeText(getApplicationContext(), time, Toast.LENGTH_SHORT).show();
-                    }
-                }, mHour, mMinute, true);
-       /* timePickerDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-                //switchTimeTask.setChecked(false);
-            }
-        });
-        timePickerDialog.show();
-    }*/
-
 }

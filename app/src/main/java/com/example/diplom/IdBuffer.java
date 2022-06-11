@@ -1,6 +1,6 @@
 package com.example.diplom;
 
-public class ID {
+public class IdBuffer {
 
     public static String event_id = " ";
     public static String task_id = " ";

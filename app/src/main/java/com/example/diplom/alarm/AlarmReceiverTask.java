@@ -1,4 +1,6 @@
-package com.example.diplom;
+package com.example.diplom.alarm;
+
+import static com.example.diplom.alarm.NotificationUtils.ANDROID_CHANNEL_ID;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -10,27 +12,30 @@ import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.support.v4.app.NotificationCompat;
 
+import com.example.diplom.IdBuffer;
+import com.example.diplom.R;
+import com.example.diplom.activity.NotifyActivity;
+
 public class AlarmReceiverTask extends BroadcastReceiver {
 
-    private NotificationManager nm;
     private String massage = " ";
     private int idN = -1;
+    private NotificationUtils mNotificationUtils;
 
 
     @Override
     public void onReceive(Context context, Intent intent) {
 
         massage = intent.getStringExtra("mes");
-        idN = Integer.valueOf(intent.getStringExtra("idN"));
-
-        nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        idN = Integer.parseInt(intent.getStringExtra("idN"));
 
         Intent in = new Intent(context, NotifyActivity.class);
-        ID.task_id = "" + idN;
+        IdBuffer.task_id = "" + idN;
 
         PendingIntent pendingIntent = PendingIntent.getActivity(context, idN, in, 0 );
 
         Notification notification = new NotificationCompat.Builder(context)
+                .setChannelId(ANDROID_CHANNEL_ID)
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.drawable.ic_icon_to_do)
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_icon_to_do))
@@ -45,6 +50,7 @@ public class AlarmReceiverTask extends BroadcastReceiver {
                 .setPriority(NotificationCompat.PRIORITY_MAX)
                 .build();
 
-        nm.notify(idN, notification);
+        mNotificationUtils = new NotificationUtils(context);
+        mNotificationUtils.getManager().notify(idN, notification);
     }
 }

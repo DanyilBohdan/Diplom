@@ -3,7 +3,7 @@ package com.example.diplom;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class DS {
+public class DateService {
     public static String date = " ";
 
     /*public static void initDate(){

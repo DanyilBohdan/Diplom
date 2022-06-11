@@ -1,9 +1,8 @@
-package com.example.diplom;
+package com.example.diplom.fragment;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -14,20 +13,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.SimpleCursorAdapter;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+
+import com.example.diplom.DBHelper;
+import com.example.diplom.DateService;
+import com.example.diplom.R;
+
 import java.util.Calendar;
-import java.util.HashMap;
 
 public class SpendingFragment extends Fragment {
 
@@ -54,11 +51,8 @@ public class SpendingFragment extends Fragment {
 
         SpendingDate = (TextView) getActivity().findViewById(R.id.toolbar_spending_title);
 
-        strDate = DS.date;
+        strDate = DateService.date;
         SpendingDate.setText(strDate);
-
-       // TextView Date_All = (TextView) getActivity().findViewById(R.id.toolbar_title_calendar);
-        //SpendingDate.setText(Date_All.getText());
 
         SpendingDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +84,7 @@ public class SpendingFragment extends Fragment {
                     if(dayOfMonth<10) strDate = "0" + dayOfMonth + "." + month + "." + year;
                     else strDate = dayOfMonth + "." + month + "." + year;
 
-                DS.date = strDate;
+                DateService.date = strDate;
 
                 SpendingDate.setText(strDate);
                 viewSpending();

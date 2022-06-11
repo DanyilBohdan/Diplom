@@ -1,4 +1,4 @@
-package com.example.diplom;
+package com.example.diplom.fragment;
 
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
@@ -22,15 +22,18 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import com.example.diplom.DBHelper;
+import com.example.diplom.DateService;
+import com.example.diplom.adapter.EventCursorAdapter;
+import com.example.diplom.R;
+import com.example.diplom.activity.EventActivity;
+import com.example.diplom.activity.UpdateEventActivity;
+import com.example.diplom.alarm.AlarmReceiverEvent;
+
 import java.util.Calendar;
-import java.util.HashMap;
 
 public class EventsFragment extends Fragment {
 
@@ -61,7 +64,7 @@ public class EventsFragment extends Fragment {
         /////DatePicker///
         EventDate = (TextView) getActivity().findViewById(R.id.toolbar_event_title);
 
-        strDate = DS.date;
+        strDate = DateService.date;
         EventDate.setText(strDate);
 
         EventDate.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +97,7 @@ public class EventsFragment extends Fragment {
                     if(dayOfMonth<10) strDate = "0" + dayOfMonth + "." + month + "." + year;
                     else strDate = dayOfMonth + "." + month + "." + year;
 
-                DS.date = strDate;
+                DateService.date = strDate;
 
                 EventDate.setText(strDate);
 
@@ -166,9 +169,9 @@ public class EventsFragment extends Fragment {
     private void viewEvent(){
         Cursor cursor = db.viewEvent(strDate);
 
-        // формируем столбцы сопоставления
-        String[] from = new String[] {"name_event", "time_event"};
-        int[] to = {R.id.cb_event, R.id.tv_event_time};
+//        // формируем столбцы сопоставления
+//        String[] from = new String[] {"name_event", "time_event"};
+//        int[] to = {R.id.cb_event, R.id.tv_event_time};
 
         // создаем адаптер и настраиваем список
         adapter = new EventCursorAdapter(getActivity(),  cursor, 0);

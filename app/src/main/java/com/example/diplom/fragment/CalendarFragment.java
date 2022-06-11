@@ -1,21 +1,22 @@
-package com.example.diplom;
+package com.example.diplom.fragment;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v13.view.DragStartHelper;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+
+import com.example.diplom.DBHelper;
+import com.example.diplom.DateService;
+import com.example.diplom.R;
+import com.example.diplom.activity.DiaryActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -62,11 +63,11 @@ public class CalendarFragment extends Fragment {
 
 
 /////////////////
-        if(DS.date == " ") {
-            DS.date = strDate;
+        if(DateService.date == " ") {
+            DateService.date = strDate;
         }
 
-        dat = DS.date;
+        dat = DateService.date;
         date.setText(dat);
         viewSpSum(dat);
         viewEventCount(dat);
@@ -97,7 +98,7 @@ public class CalendarFragment extends Fragment {
                 viewSpSum(strDate);
                 viewEventCount(strDate);
                 viewTaskCount(strDate);
-                DS.date = strDate;
+                DateService.date = strDate;
             }
         });
 
@@ -121,7 +122,7 @@ public class CalendarFragment extends Fragment {
 
    private void viewSpSum(String d){
         int sum = db.viewSpendingSum(d);
-        tv_spending.setText(sum + "грн");
+        tv_spending.setText("Потрачено " + sum + "грн");
     }
 
     private void viewEventCount(String d){
