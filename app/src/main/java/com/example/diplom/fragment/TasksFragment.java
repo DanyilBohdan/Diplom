@@ -134,7 +134,6 @@ public class TasksFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
 
-
                         cancelAlarm(Integer.valueOf((int) id));
                         db.delTask(id);
                         Toast.makeText(
